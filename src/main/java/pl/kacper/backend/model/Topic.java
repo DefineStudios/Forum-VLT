@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
-public class Topic {
+public class Topic implements Identify{
     private String content;
     private User author;
     private LocalDateTime timeOfRegistration;
@@ -64,5 +64,15 @@ public class Topic {
                 ", author=" + author +
                 ", timeOfRegistration=" + timeOfRegistration +
                 '}';
+    }
+
+    @Override
+    public Long getId() {
+        return null;
+    }
+
+    @Override
+    public void setId(Long id) {
+
     }
 }

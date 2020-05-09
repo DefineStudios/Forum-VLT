@@ -3,7 +3,7 @@ package pl.kacper.backend.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Comment {
+public class Comment implements Identify{
     private String content;
     private User user;
     private LocalDateTime timeOfAdd;
