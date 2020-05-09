@@ -3,7 +3,9 @@ package pl.kacper.gui;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,9 +27,11 @@ public class MainPanel extends Application implements EventHandler<ActionEvent> 
 
     private Button buttonReg;
     private Button buttonShow;
+    private Button buttonUp;
     private UserService userService;
     private TextField login;
     private TextField password;
+    private TextField id;
 
     public static void main(String[] args) {
         launch();
@@ -48,13 +52,12 @@ public class MainPanel extends Application implements EventHandler<ActionEvent> 
         layout.setHgap(10);
         layout.setVgap(8);
 
-        Label mainLabel = new Label("Welcome! Please select an option to progress.");
-        mainLabel.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 14));
-
         buttonReg = new Button();
         buttonReg.setText("Register new user");
         buttonShow = new Button();
         buttonShow.setText("Show all users");
+        buttonUp = new Button();
+        buttonUp.setText("Update user");
 
         Label loginLabel = new Label("Login: ");
         loginLabel.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 10));
@@ -68,31 +71,49 @@ public class MainPanel extends Application implements EventHandler<ActionEvent> 
         password = new TextField();
         password.setEditable(true);
 
-        GridPane.setFillWidth(mainLabel, true);
+        Label idLabel = new Label("ID: ");
+        idLabel.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 10));
+
+        id = new TextField();
+        id.setEditable(true);
+
         GridPane.setFillWidth(buttonReg, true);
         GridPane.setFillWidth(buttonShow, true);
-        mainLabel.setMaxWidth(Double.MAX_VALUE);
+        GridPane.setFillWidth(buttonUp, true);
+        GridPane.setFillWidth(loginLabel, true);
+        GridPane.setFillWidth(passwordLabel, true);
+        GridPane.setFillWidth(idLabel, true);
         buttonReg.setMaxWidth(150);
         buttonShow.setMaxWidth(150);
+        buttonUp.setMaxWidth(150);
         buttonReg.setMaxHeight(50);
         buttonShow.setMaxHeight(50);
+        buttonUp.setMaxHeight(50);
         buttonReg.setOnAction(this);
         buttonShow.setOnAction(this);
-        GridPane.setConstraints(mainLabel, 1, 0);
-        GridPane.setConstraints(buttonReg, 0, 1);
-        GridPane.setConstraints(buttonShow, 2, 1);
-        GridPane.setConstraints(loginLabel, 0, 2);
-        GridPane.setConstraints(login, 1,2);
-        GridPane.setConstraints(passwordLabel,0,3);
-        GridPane.setConstraints(password,2,2);
+        buttonUp.setOnAction(this);
+        GridPane.setConstraints(buttonReg, 0, 2);
+        GridPane.setConstraints(buttonShow, 1, 2);
+        GridPane.setConstraints(buttonUp, 2, 2);
+        GridPane.setConstraints(loginLabel, 0,0);
+        GridPane.setConstraints(passwordLabel,1,0);
+        GridPane.setConstraints(idLabel,2,0);
+        GridPane.setConstraints(login, 0,1);
+        GridPane.setConstraints(password,1,1);
+        GridPane.setConstraints(id,2,1);
+        GridPane.setHalignment(loginLabel, HPos.CENTER);
+        GridPane.setHalignment(passwordLabel, HPos.CENTER);
+        GridPane.setHalignment(idLabel, HPos.CENTER);
 
-        layout.getChildren().add(mainLabel);
         layout.getChildren().add(buttonReg);
         layout.getChildren().add(buttonShow);
+        layout.getChildren().add(buttonUp);
         layout.getChildren().add(loginLabel);
-        layout.getChildren().add(login);
         layout.getChildren().add(passwordLabel);
+        layout.getChildren().add(idLabel);
+        layout.getChildren().add(login);
         layout.getChildren().add(password);
+        layout.getChildren().add(id);
 
         primaryStage.setTitle("Selection");
         primaryStage.setScene(scene);
@@ -126,6 +147,9 @@ public class MainPanel extends Application implements EventHandler<ActionEvent> 
             for(User user : users){
                 System.out.println(user);
             }
+        }
+        else if(event.getSource() == buttonUp){
+            //userService.update(Long.parseLong(id.getText()), login.getText(), password.getText());
         }
     }
 }

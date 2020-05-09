@@ -78,5 +78,24 @@ public class UserRepositoryTest {
         }
     }
 
-    //TODO Update
+    @Test
+    public void update(){
+        User userResult = new User("AAA","BBB");
+        User userBeforeModification = new User("CCC","DDD");
+        userBeforeModification.setId(1L);
+        userResult.setId(1L);
+        try {
+            userRepository.save(userBeforeModification);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        User checked = null;
+        try {
+            userRepository.update(userResult);
+            checked = userRepository.getUser(userResult.getId());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assertEquals(userResult,checked);
+    }
 }

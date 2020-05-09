@@ -8,15 +8,26 @@ public class Comment {
     private User user;
     private LocalDateTime timeOfAdd;
     private boolean edited;
+    private Long id;
+    private Topic parentTopic;
 
-    public Comment(String content, User user, LocalDateTime timeOfAdd, boolean edited) {
+    public Comment(String content, User user, LocalDateTime timeOfAdd, boolean edited, Topic parentTopic) {
         this.content = content;
         this.user = user;
         this.timeOfAdd = timeOfAdd;
         this.edited = edited;
+        this.parentTopic = parentTopic;
     }
 
     public Comment() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getContent() {
@@ -51,6 +62,14 @@ public class Comment {
         this.edited = edited;
     }
 
+    public Topic getParentTopic() {
+        return parentTopic;
+    }
+
+    public void setParentTopic(Topic parentTopic) {
+        this.parentTopic = parentTopic;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,12 +78,13 @@ public class Comment {
         return edited == comment.edited &&
                 Objects.equals(content, comment.content) &&
                 Objects.equals(user, comment.user) &&
-                Objects.equals(timeOfAdd, comment.timeOfAdd);
+                Objects.equals(timeOfAdd, comment.timeOfAdd) &&
+                Objects.equals(parentTopic, comment.parentTopic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, user, timeOfAdd, edited);
+        return Objects.hash(content, user, timeOfAdd, edited, parentTopic);
     }
 
     @Override
@@ -74,6 +94,8 @@ public class Comment {
                 ", user=" + user +
                 ", timeOfAdd=" + timeOfAdd +
                 ", edited=" + edited +
+                ", id=" + id +
+                ", parentTopic=" + parentTopic +
                 '}';
     }
 }

@@ -26,7 +26,6 @@ public class UserRepository {
     }
 
     public void save(User user) throws IOException { ///zapisywanie nowego rekordu do pliku
-        getAll();
         if(users == null) {
             users = new HashSet<>();
         }
@@ -53,5 +52,14 @@ public class UserRepository {
                 .orElseThrow(() -> new DomainException(CodeException.USER_NOT_FOUND));
     }
 
-    //kontynuacja CRUDa
+    public void update(User user) throws IOException {
+        User modifiable = getUser(user.getId());
+        users.remove(modifiable);
+        modifiable.setLogin(user.getLogin());
+        modifiable.setPassword(user.getPassword());
+        users.add(modifiable);
+        objectMapper.writeValue(sourceFile,users);
+    }
+
+    //saveAll
 }
