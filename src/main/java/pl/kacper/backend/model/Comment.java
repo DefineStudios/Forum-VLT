@@ -3,7 +3,7 @@ package pl.kacper.backend.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Comment implements Identify{
+public class Comment implements Identify<Comment>{
     private String content;
     private User user;
     private LocalDateTime timeOfAdd;
@@ -97,5 +97,10 @@ public class Comment implements Identify{
                 ", id=" + id +
                 ", parentTopic=" + parentTopic +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Comment o) {
+        return o.getTimeOfAdd().compareTo(this.getTimeOfAdd());
     }
 }

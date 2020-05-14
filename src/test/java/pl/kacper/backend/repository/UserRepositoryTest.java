@@ -8,6 +8,7 @@ import pl.kacper.backend.model.User;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 
 import static org.junit.Assert.*;
 
@@ -97,5 +98,22 @@ public class UserRepositoryTest {
             e.printStackTrace();
         }
         assertEquals(userResult,checked);
+    }
+
+    @Test
+    public void userSortingByIdTest() throws IOException {
+        User user1 = new User("AAA","BBB");
+        User user2 = new User("BBB","CCC");
+        User user3 = new User("CCC","DDD");
+        User user4 = new User("DDD","EEE");
+        userRepository.save(user3);
+        userRepository.save(user1);
+        userRepository.save(user4);
+        userRepository.save(user2);
+        Iterator<User> iterator = userRepository.getAll().iterator();
+        assertEquals(user3, iterator.next());
+        assertEquals(user1, iterator.next());
+        assertEquals(user4, iterator.next());
+        assertEquals(user2, iterator.next());
     }
 }

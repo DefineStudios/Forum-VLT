@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
-public class Topic implements Identify{
+public class Topic implements Identify<Topic>{
     private String content;
     private User author;
     private LocalDateTime timeOfRegistration;
@@ -74,5 +74,10 @@ public class Topic implements Identify{
     @Override
     public void setId(Long id) {
 
+    }
+
+    @Override
+    public int compareTo(Topic o) {
+        return 0;
     }
 }

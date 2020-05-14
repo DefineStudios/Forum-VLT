@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16b32f2a-7ce5-4f48-8ea3-91e29496adca" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Identify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/Repository.java" afterDir="false" />
+    <list default="true" id="16b32f2a-7ce5-4f48-8ea3-91e29496adca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Identify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Identify.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/Topic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kacper/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kacper/backend/repository/CommentRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kacper/backend/repository/CommentRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kacper/backend/repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kacper/backend/repository/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/users.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,16 +78,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentRepositoryTest">
-    <configuration name="MainPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pl.kacper.gui.MainPanel" />
-      <module name="forum" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.kacper.gui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="JUnit.AllTests">
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit">
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,6 +139,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="forum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.kacper.backend.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.kacper.backend.repository" />
+      <option name="MAIN_CLASS_NAME" value="pl.kacper.backend.repository.UserRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserRepositoryTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="forum" />
       <extension name="coverage">
@@ -152,13 +170,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.AllTests" />
+      <item itemvalue="JUnit.CommentRepositoryTest" />
+      <item itemvalue="JUnit.CommentRepositoryTest.get" />
+      <item itemvalue="JUnit.CommentRepositoryTest.getAll" />
+      <item itemvalue="JUnit.UserRepositoryTest" />
+      <item itemvalue="JUnit.UserRepositoryTest.update" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserRepositoryTest" />
         <item itemvalue="JUnit.CommentRepositoryTest" />
         <item itemvalue="JUnit.CommentRepositoryTest.get" />
         <item itemvalue="JUnit.CommentRepositoryTest.getAll" />
         <item itemvalue="JUnit.UserRepositoryTest.update" />
-        <item itemvalue="Application.MainPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589010484044</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1589011776704</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589011776704</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,5 +232,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pl/kacper/backend/repository/UserRepositoryTest.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

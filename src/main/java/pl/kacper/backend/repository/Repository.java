@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 abstract class Repository<T extends Identify> {
     private Long id;
@@ -47,7 +48,7 @@ abstract class Repository<T extends Identify> {
 
     protected void save(T object, boolean objectExists) throws IOException {
         if(objects == null){
-            objects = new HashSet<>();
+            objects = new TreeSet<>();
         }
 //        boolean objectExists = objects.stream()
 //                .filter(c -> object.getUser().equals(c.getUser()))

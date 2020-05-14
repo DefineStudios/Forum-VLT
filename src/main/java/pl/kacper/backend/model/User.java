@@ -2,7 +2,7 @@ package pl.kacper.backend.model;
 
 import java.util.Objects;
 
-public class User implements Identify{
+public class User implements Identify<User>{
     private Long id;
     private String login;
     private String password;
@@ -60,5 +60,10 @@ public class User implements Identify{
                 ", password='" + password + '\'' +
                 ", id='" + id + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.getId().compareTo(o.getId());
     }
 }

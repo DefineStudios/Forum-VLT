@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class UserRepository {
     private Long id = 1L;
@@ -22,12 +23,12 @@ public class UserRepository {
     }
 
     public Set<User> getAll() throws IOException { ///pobranie wszystkich userów i przypisanie ich do users
-        return objectMapper.readValue(sourceFile, new TypeReference<Set<User>>() {});
+        return objectMapper.readValue(sourceFile, new TypeReference<TreeSet<User>>() {});
     }
 
     public void save(User user) throws IOException { ///zapisywanie nowego rekordu do pliku
         if(users == null) {
-            users = new HashSet<>();
+            users = new TreeSet<>();
         }
         boolean userExists = users.stream()
                 .anyMatch(u -> u.getLogin().equals(user.getLogin()));
@@ -36,6 +37,7 @@ public class UserRepository {
             users.add(user);
             objectMapper.writeValue(sourceFile, users);
         }
+
         else{
             throw new DomainException(CodeException.USER_DUPLICATE_FOUND);
         }
@@ -60,6 +62,4 @@ public class UserRepository {
         users.add(modifiable);
         objectMapper.writeValue(sourceFile,users);
     }
-
-    //saveAll
 }
